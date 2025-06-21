@@ -1,8 +1,7 @@
----
 
 ## 📄 Professional README.md
 
-```markdown
+
 # 📄 PDF Web Scraper & Downloader
 
 This repository contains a simple, complete workflow to scrape PDF links from a webpage using a Python web scraper, then download those PDFs via a Node.js backend and a browser-based frontend interface.
