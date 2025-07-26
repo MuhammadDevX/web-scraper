@@ -19,9 +19,8 @@ app.get('/download', (req, res) => {
 
     // Set download headers
     res.setHeader('Content-Disposition', 'attachment; filename="case.pdf"');
-
     // Pipe the remote PDF to the response
-    request.get(fileUrl).on('error', () => {
+    request.get({url:fileUrl,rejectUnauthorized:false}).on('error', () => {
         res.status(500).send('Failed to fetch file');
     }).pipe(res);
 });

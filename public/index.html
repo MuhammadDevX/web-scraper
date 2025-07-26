@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>High Court Case Downloads</title>
+</head>
+
+<body>
+
+    <h2>Download Court Case PDFs</h2>
+    <button onclick="downloadPDFs()">Download All Cases</button>
+
+    <script>
+        
+        const pdfLinks = []
+        function downloadPDFs() {
+            let delay = 0;
+            const delayBetweenDownloads = 100; // 0.1 seconds between each download
+
+            pdfLinks.forEach((url, index) => {
+                setTimeout(() => {
+                    const downloadUrl = `http://localhost:3000/download?url=${encodeURIComponent(url)}`;
+                    const helperUrl = `/download-helper.html?url=${encodeURIComponent(downloadUrl)}`;
+                    window.open(helperUrl, '_blank');
+                    console.log(`Started download for case ${index + 1}`);
+                }, delay);
+
+                delay += delayBetweenDownloads;
+            });
+        }
+    </script>
+
+</body>
+
+</html>

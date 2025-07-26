@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Download Helper</title>
+    <script>
+      function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+      window.onload = function () {
+        const downloadUrl = getQueryParam("url");
+        if (downloadUrl) {
+          const a = document.createElement("a");
+          a.href = downloadUrl;
+          a.download = "";
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(() => {
+            window.close();
+          }, 1500);
+        } else {
+          window.close();
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <p>Starting download...</p>
+  </body>
+</html>
